@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* .inSameLine h2{
+    float: left;
+    text-align:center;
+} */
+h2{
+    display: inline;
+}
+ 
+body{
+    background-color: rgb(188, 200, 231);
+}
+
+select{
+    text-align-last: center;
+}
+option{
+    text-align-last: center;
+    color: green;
+}
+i{
+    color: black;
+}

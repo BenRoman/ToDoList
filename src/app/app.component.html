@@ -1,0 +1,43 @@
+<div style="margin-top:10%" class="center">
+
+    <a class="waves-effect btn orange modal-trigger" href="#taskAdd">Add task</a>
+    <div style="margin-top:40px; ">
+        <display-task *ngFor="let item of this.tskSer.tasks" [task]="item"></display-task>
+    </div>
+
+    <!-- Modal ADD -->
+    <div id="taskAdd" class="modal">
+        <div class="modal-content">
+            <h4>Describe your task</h4>
+            <input class="center" type="text" [(ngModel)]="this.tskSer.desc" placeholder="Description for your task...">
+            <select class="browser-default" [(ngModel)]="this.tskSer.pr">
+                <option value="" disabled selected>Choose priority of your task</option>
+                <option value=1>high</option>
+                <option value=2>medium</option>
+                <option value=3>low</option>
+            </select>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close btn pink" (click)="this.tskSer.AddNewTask();">Create</a>
+        </div>
+    </div>
+
+
+    <!-- Modal SHOWOLD -->
+    <div style="margin-top:20px">
+        <a class="waves-effect orange btn modal-trigger" href="#tasksOld">Trash</a>
+
+        <div id="tasksOld" class="modal bottom-sheet">
+            <div class="modal-content yellow">
+                <h4>Your solved tasks</h4>
+                <display-task *ngFor="let item of this.tskSer.oldTasks" [task]="item"></display-task>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>

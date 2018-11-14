@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row" [style.color]="this.task.inTrash==true?'blue':getColor()">
+    <i *ngIf="task.inTrash" class="material-icons" (click)=this.tskSer.AddToActual(task)>add</i>
+    <label>
+      <input *ngIf="!task.inTrash" type="checkbox" [checked]="!task.stillActual" (change)="task.stillActual =!task.stillActual" />
+      <span></span>
+    </label>
+
+    <span *ngIf="task.stillActual" style="font-size:30px ; " class="waves-effect" (click)="tryToChange =!tryToChange">{{ task.description }}</span>
+    <span *ngIf="!task.stillActual"> <del>{{ task.description }}</del></span>
+    <i *ngIf="!task.inTrash" class="material-icons" (click)=this.tskSer.MoveToTrash(task)>delete</i>
+    <i *ngIf="task.inTrash" class="material-icons" (click)=this.tskSer.DeleteForever(task)>delete_forever</i>
+    <select *ngIf="tryToChange" class="browser-default" [(ngModel)]="task.priority" (change)="tryToChange =!tryToChange">
+        <option value=1>high</option>
+        <option value=2>medium</option>
+        <option value=3>low</option>
+      </select>
+  </div>
+</div>
